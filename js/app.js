@@ -14,6 +14,7 @@ let Seattle =
     AverageNumberOfCookiesPurchasedPerCustomer : 6.3 ,
     CustomersPerHour:[],
     soldCookiesPerHour : [],
+    total : 0,
     render : function ()
     {
     let container = document.getElementById('Sales1');
@@ -21,19 +22,23 @@ let Seattle =
     container.appendChild(PEl);
     PEl.textContent = this.Name;
     let UlEl = document.createElement('ul');
-    container.appendChild(UlEl)
+    container.appendChild(UlEl);
     for(let i=0 ; i<ArrHour.length;i++)
     {
         let LiEl = document.createElement('li');
         UlEl.appendChild(LiEl);
         LiEl.textContent = `${ArrHour[i]} : ${this.soldCookiesPerHour[i]}`;
     }
+    let total =document.createElement('li');
+    UlEl.appendChild(total);
+    total.textContent= `total: ${this.total}`;
 },
     generate :function ()
     {
         for(let i=0;i<ArrHour.length;i++)
         { 
             this.soldCookiesPerHour.push( this.CustomersPerHour[i] * this.AverageNumberOfCookiesPurchasedPerCustomer);
+            this.total += this.soldCookiesPerHour[i];
         }
     },
     getRandom : function () 
@@ -51,6 +56,9 @@ let Seattle =
 Seattle.getRandom(23,65);
 Seattle.generate ();
 Seattle.render();
+
+///////////////////////////////////////// 
+
 let Tokyo = 
 {
     Name : 'Tokyo',
@@ -59,6 +67,7 @@ let Tokyo =
     AverageNumberOfCookiesPurchasedPerCustomer : 1.2 ,
     CustomersPerHour:[],
     soldCookiesPerHour : [],
+    total : 0,
     render : function ()
     {
     let container = document.getElementById('Sales2');
@@ -73,12 +82,16 @@ let Tokyo =
         UlEl.appendChild(LiEl);
         LiEl.textContent = `${ArrHour[i]} : ${this.soldCookiesPerHour[i]}`;
     }
+    let total =document.createElement('li');
+    UlEl.appendChild(total);
+    total.textContent= `total: ${this.total}`;
 },
     generate :function ()
     {
         for(let i=0;i<ArrHour.length;i++)
         { 
             this.soldCookiesPerHour.push( this.CustomersPerHour[i] * this.AverageNumberOfCookiesPurchasedPerCustomer);
+            this.total += this.soldCookiesPerHour[i];
         }
     },
     getRandom : function () 
@@ -88,10 +101,11 @@ let Tokyo =
        for(let i=0;i<ArrHour.length;i++)
        {
             this.CustomersPerHour.push(Math.floor(Math.random() * (max - min + 1) + min)); //The maximum is inclusive and the minimum is inclusive
-
        }
+       
     }
 }
+
 ;
 Tokyo.getRandom(3,24);
 Tokyo.generate ();
@@ -105,6 +119,7 @@ let Dubai =
     AverageNumberOfCookiesPurchasedPerCustomer : 3.7 ,
     CustomersPerHour:[],
     soldCookiesPerHour : [],
+    total : 0,
     render : function ()
     {
     let container = document.getElementById('Sales3');
@@ -119,12 +134,16 @@ let Dubai =
         UlEl.appendChild(LiEl);
         LiEl.textContent = `${ArrHour[i]} : ${this.soldCookiesPerHour[i]}`;
     }
+    let total =document.createElement('li');
+    UlEl.appendChild(total);
+    total.textContent= `total: ${this.total}`;
 },
     generate :function ()
     {
         for(let i=0;i<ArrHour.length;i++)
         { 
             this.soldCookiesPerHour.push( this.CustomersPerHour[i] * this.AverageNumberOfCookiesPurchasedPerCustomer);
+            this.total += this.soldCookiesPerHour[i];
         }
     },
     getRandom : function () 
@@ -134,8 +153,8 @@ let Dubai =
        for(let i=0;i<ArrHour.length;i++)
        {
             this.CustomersPerHour.push(Math.floor(Math.random() * (max - min + 1) + min)); //The maximum is inclusive and the minimum is inclusive
-
        }
+       
     }
 }
 ;
@@ -151,6 +170,7 @@ let Paris =
     AverageNumberOfCookiesPurchasedPerCustomer : 2.3 ,
     CustomersPerHour:[],
     soldCookiesPerHour : [],
+    total : 0,
     render : function ()
     {
     let container = document.getElementById('Sales4');
@@ -165,12 +185,16 @@ let Paris =
         UlEl.appendChild(LiEl);
         LiEl.textContent = `${ArrHour[i]} : ${this.soldCookiesPerHour[i]}`;
     }
+    let total =document.createElement('li');
+    UlEl.appendChild(total);
+    total.textContent= `total: ${this.total}`;
 },
     generate :function ()
     {
         for(let i=0;i<ArrHour.length;i++)
         { 
             this.soldCookiesPerHour.push( this.CustomersPerHour[i] * this.AverageNumberOfCookiesPurchasedPerCustomer);
+            this.total += this.soldCookiesPerHour[i];
         }
     },
     getRandom : function () 
@@ -197,6 +221,7 @@ let Lima =
     AverageNumberOfCookiesPurchasedPerCustomer : 2.3 ,
     CustomersPerHour:[],
     soldCookiesPerHour : [],
+    total : 0,
     render : function ()
     {
     let container = document.getElementById('Sales5');
@@ -211,12 +236,16 @@ let Lima =
         UlEl.appendChild(LiEl);
         LiEl.textContent = `${ArrHour[i]} : ${this.soldCookiesPerHour[i]}`;
     }
+    let total =document.createElement('li');
+    UlEl.appendChild(total);
+    total.textContent= `total: ${this.total}`;
 },
     generate :function ()
     {
         for(let i=0;i<ArrHour.length;i++)
         { 
             this.soldCookiesPerHour.push( this.CustomersPerHour[i] * this.AverageNumberOfCookiesPurchasedPerCustomer);
+            this.total += this.soldCookiesPerHour[i];
         }
     },
     getRandom : function () 
