@@ -1,268 +1,149 @@
 'use strict';
 
-let ArrHour = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
 
+let ArrHour = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+// let CustPerHour = [];
+// let SoldCookies = [];
+let container = document.getElementById('Sales1');
+let tableEl = document.createElement('table');
+container.appendChild(tableEl);
 
-// let container = document.getElementById('Sales');
-
-
-let Seattle = 
+let branches =[];
+function Loctions (LocName , MinNumOfCusPerH , MaxNumOfCusPerH , AvgNumOfCusPerH   )
 {
-    Name : 'Seattle',
-    MinimumNumberOfCustomersPerHour : 23 ,
-    MaximumNumberOfCustomersPerHour : 65 ,
-    AverageNumberOfCookiesPurchasedPerCustomer : 6.3 ,
-    CustomersPerHour:[],
-    soldCookiesPerHour : [],
-    total : 0,
-    render : function ()
-    {
-    let container = document.getElementById('Sales1');
-    let PEl = document.createElement('p');
-    container.appendChild(PEl);
-    PEl.textContent = this.Name;
-    let UlEl = document.createElement('ul');
-    container.appendChild(UlEl);
-    for(let i=0 ; i<ArrHour.length;i++)
-    {
-        let LiEl = document.createElement('li');
-        UlEl.appendChild(LiEl);
-        LiEl.textContent = `${ArrHour[i]} : ${this.soldCookiesPerHour[i]}`;
-    }
-    let total =document.createElement('li');
-    UlEl.appendChild(total);
-    total.textContent= `total: ${this.total}`;
-},
-    generate :function ()
-    {
-        for(let i=0;i<ArrHour.length;i++)
-        { 
-            this.soldCookiesPerHour.push( this.CustomersPerHour[i] * this.AverageNumberOfCookiesPurchasedPerCustomer);
-            this.total += this.soldCookiesPerHour[i];
-        }
-    },
-    getRandom : function () 
-    {
-       let min = Math.ceil(this.MinimumNumberOfCustomersPerHour);
-       let max = Math.floor(this.MaximumNumberOfCustomersPerHour);
-       for(let i=0;i<ArrHour.length;i++)
-       {
-            this.CustomersPerHour.push(Math.floor(Math.random() * (max - min + 1) + min)); //The maximum is inclusive and the minimum is inclusive
-
-       }
-    }
-}
-;
-Seattle.getRandom(23,65);
-Seattle.generate ();
-Seattle.render();
-
-///////////////////////////////////////// 
-
-let Tokyo = 
-{
-    Name : 'Tokyo',
-    MinimumNumberOfCustomersPerHour : 3 ,
-    MaximumNumberOfCustomersPerHour : 24 ,
-    AverageNumberOfCookiesPurchasedPerCustomer : 1.2 ,
-    CustomersPerHour:[],
-    soldCookiesPerHour : [],
-    total : 0,
-    render : function ()
-    {
-    let container = document.getElementById('Sales2');
-    let PEl = document.createElement('p');
-    container.appendChild(PEl);
-    PEl.textContent = this.Name;
-    let UlEl = document.createElement('ul');
-    container.appendChild(UlEl)
-    for(let i=0 ; i<ArrHour.length;i++)
-    {
-        let LiEl = document.createElement('li');
-        UlEl.appendChild(LiEl);
-        LiEl.textContent = `${ArrHour[i]} : ${this.soldCookiesPerHour[i]}`;
-    }
-    let total =document.createElement('li');
-    UlEl.appendChild(total);
-    total.textContent= `total: ${this.total}`;
-},
-    generate :function ()
-    {
-        for(let i=0;i<ArrHour.length;i++)
-        { 
-            this.soldCookiesPerHour.push( this.CustomersPerHour[i] * this.AverageNumberOfCookiesPurchasedPerCustomer);
-            this.total += this.soldCookiesPerHour[i];
-        }
-    },
-    getRandom : function () 
-    {
-       let min = Math.ceil(this.MinimumNumberOfCustomersPerHour);
-       let max = Math.floor(this.MaximumNumberOfCustomersPerHour);
-       for(let i=0;i<ArrHour.length;i++)
-       {
-            this.CustomersPerHour.push(Math.floor(Math.random() * (max - min + 1) + min)); //The maximum is inclusive and the minimum is inclusive
-       }
-       
-    }
+    this.LocName = LocName;
+    this.MinNumOfCusPerH = MinNumOfCusPerH;
+    this.MaxNumOfCusPerH = MaxNumOfCusPerH;
+    this.AvgNumOfCusPerH= AvgNumOfCusPerH;
+    this.CustomePerHour =[];
+    this.SoldCookiesEachHour=[];
+    this.TotalOfBranch = 0;
+    branches.push(this);
+    
 }
 
-;
-Tokyo.getRandom(3,24);
-Tokyo.generate ();
-Tokyo.render();
-
-let Dubai = 
+Loctions.prototype.getRandom = function()
 {
-    Name : 'Dubai',
-    MinimumNumberOfCustomersPerHour : 11 ,
-    MaximumNumberOfCustomersPerHour : 38 ,
-    AverageNumberOfCookiesPurchasedPerCustomer : 3.7 ,
-    CustomersPerHour:[],
-    soldCookiesPerHour : [],
-    total : 0,
-    render : function ()
-    {
-    let container = document.getElementById('Sales3');
-    let PEl = document.createElement('p');
-    container.appendChild(PEl);
-    PEl.textContent = this.Name;
-    let UlEl = document.createElement('ul');
-    container.appendChild(UlEl)
-    for(let i=0 ; i<ArrHour.length;i++)
-    {
-        let LiEl = document.createElement('li');
-        UlEl.appendChild(LiEl);
-        LiEl.textContent = `${ArrHour[i]} : ${this.soldCookiesPerHour[i]}`;
-    }
-    let total =document.createElement('li');
-    UlEl.appendChild(total);
-    total.textContent= `total: ${this.total}`;
-},
-    generate :function ()
-    {
-        for(let i=0;i<ArrHour.length;i++)
-        { 
-            this.soldCookiesPerHour.push( this.CustomersPerHour[i] * this.AverageNumberOfCookiesPurchasedPerCustomer);
-            this.total += this.soldCookiesPerHour[i];
-        }
-    },
-    getRandom : function () 
-    {
-       let min = Math.ceil(this.MinimumNumberOfCustomersPerHour);
-       let max = Math.floor(this.MaximumNumberOfCustomersPerHour);
+    let min = Math.ceil(this.MinNumOfCusPerH);
+       let max = Math.floor(this.MaxNumOfCusPerH);
        for(let i=0;i<ArrHour.length;i++)
        {
-            this.CustomersPerHour.push(Math.floor(Math.random() * (max - min + 1) + min)); //The maximum is inclusive and the minimum is inclusive
+            this.CustomePerHour.push(Math.floor(Math.random() * (max - min + 1) + min));
        }
-       
-    }
 }
-;
-Dubai.getRandom(23,65);
-Dubai.generate ();
-Dubai.render();
 
-let Paris = 
+Loctions.prototype.SoldCookies = function ()
 {
-    Name : 'Paris',
-    MinimumNumberOfCustomersPerHour : 20 ,
-    MaximumNumberOfCustomersPerHour : 38 ,
-    AverageNumberOfCookiesPurchasedPerCustomer : 2.3 ,
-    CustomersPerHour:[],
-    soldCookiesPerHour : [],
-    total : 0,
-    render : function ()
-    {
-    let container = document.getElementById('Sales4');
-    let PEl = document.createElement('p');
-    container.appendChild(PEl);
-    PEl.textContent = this.Name;
-    let UlEl = document.createElement('ul');
-    container.appendChild(UlEl)
+ for(let i=0;i<ArrHour.length;i++)
+ {
+     this.SoldCookiesEachHour.push(Math.floor(this.CustomePerHour[i] * this.AvgNumOfCusPerH))
+     this.TotalOfBranch += this.SoldCookiesEachHour[i];
+     
+
+ }   
+}
+Loctions.prototype.render = function()
+{
+    let trE1 = document.createElement('tr')
+    tableEl.appendChild(trE1);
+        let tdE1 = document.createElement('td');
+        trE1.appendChild(tdE1)
+        tdE1.textContent = `${this.LocName}`
     for(let i=0 ; i<ArrHour.length;i++)
     {
-        let LiEl = document.createElement('li');
-        UlEl.appendChild(LiEl);
-        LiEl.textContent = `${ArrHour[i]} : ${this.soldCookiesPerHour[i]}`;
+        let tdE1 = document.createElement('td');
+        trE1.appendChild(tdE1)
+        tdE1.textContent = `${this.SoldCookiesEachHour[i]}`
     }
-    let total =document.createElement('li');
-    UlEl.appendChild(total);
-    total.textContent= `total: ${this.total}`;
-},
-    generate :function ()
-    {
-        for(let i=0;i<ArrHour.length;i++)
-        { 
-            this.soldCookiesPerHour.push( this.CustomersPerHour[i] * this.AverageNumberOfCookiesPurchasedPerCustomer);
-            this.total += this.soldCookiesPerHour[i];
-        }
-    },
-    getRandom : function () 
-    {
-       let min = Math.ceil(this.MinimumNumberOfCustomersPerHour);
-       let max = Math.floor(this.MaximumNumberOfCustomersPerHour);
-       for(let i=0;i<ArrHour.length;i++)
-       {
-            this.CustomersPerHour.push(Math.floor(Math.random() * (max - min + 1) + min)); //The maximum is inclusive and the minimum is inclusive
+    let tddE1 = document.createElement('td');
+        trE1.appendChild(tddE1)
+        tddE1.textContent = `${this.TotalOfBranch}`
+    }
 
-       }
+
+// let container = document.getElementById('Sales1');
+// let tableEl = document.createElement('table');
+// container.appendChild(tableEl);
+
+function createTableHeader() {
+
+    let trEl = document.createElement('tr');
+    tableEl.appendChild(trEl);
+    let thEl = document.createElement('th');
+        trEl.appendChild(thEl);
+        thEl.textContent = ' ';
+    for(let i=0;i<ArrHour.length; i++)
+    {
+        let thEl = document.createElement('th');
+        trEl.appendChild(thEl);
+        thEl.textContent = `${ArrHour[i]} `;
     }
+    // let thEl = document.createElement('th');
+    //     trEl.appendChild(thEl);
+    let thEll = document.createElement('th');
+    trEl.appendChild(thEll);
+    thEll.textContent = 'Daily Location Total';
 }
-;
-Paris.getRandom(23,65);
-Paris.generate ();
-Paris.render();
+        
+createTableHeader();
 
-let Lima = 
-{
-    Name : 'Lima',
-    MinimumNumberOfCustomersPerHour : 20 ,
-    MaximumNumberOfCustomersPerHour : 38 ,
-    AverageNumberOfCookiesPurchasedPerCustomer : 2.3 ,
-    CustomersPerHour:[],
-    soldCookiesPerHour : [],
-    total : 0,
-    render : function ()
-    {
-    let container = document.getElementById('Sales5');
-    let PEl = document.createElement('p');
-    container.appendChild(PEl);
-    PEl.textContent = this.Name;
-    let UlEl = document.createElement('ul');
-    container.appendChild(UlEl)
-    for(let i=0 ; i<ArrHour.length;i++)
-    {
-        let LiEl = document.createElement('li');
-        UlEl.appendChild(LiEl);
-        LiEl.textContent = `${ArrHour[i]} : ${this.soldCookiesPerHour[i]}`;
-    }
-    let total =document.createElement('li');
-    UlEl.appendChild(total);
-    total.textContent= `total: ${this.total}`;
-},
-    generate :function ()
-    {
-        for(let i=0;i<ArrHour.length;i++)
-        { 
-            this.soldCookiesPerHour.push( this.CustomersPerHour[i] * this.AverageNumberOfCookiesPurchasedPerCustomer);
-            this.total += this.soldCookiesPerHour[i];
+function createfooterHeader() {
+
+    let trE1 = document.createElement('tr')
+    tableEl.appendChild(trE1)
+    let tdE1 =document.createElement('td');
+    trE1.appendChild(tdE1);
+    tdE1.textContent= `Totals`;
+    let TotalOfTotal =0;
+    for(let i =0;i<ArrHour.length;i++)
+    {   
+        let TotalOfBranch =0;
+        for(let j=0;j<branches.length;j++)
+        {
+            TotalOfBranch += branches[j].SoldCookiesEachHour[i];
+            TotalOfTotal  += branches[j].SoldCookiesEachHour[i];
         }
-    },
-    getRandom : function () 
-    {
-       let min = Math.ceil(this.MinimumNumberOfCustomersPerHour);
-       let max = Math.floor(this.MaximumNumberOfCustomersPerHour);
-       for(let i=0;i<ArrHour.length;i++)
-       {
-            this.CustomersPerHour.push(Math.floor(Math.random() * (max - min + 1) + min)); //The maximum is inclusive and the minimum is inclusive
-
-       }
+          let tdE1 =document.createElement('td');
+        trE1.appendChild(tdE1); 
+        tdE1.textContent= TotalOfBranch;
     }
+        
+        let lastCell =document.createElement('td');
+        trE1.appendChild(lastCell); 
+        lastCell.textContent= TotalOfTotal;
 }
-;
-Lima.getRandom(23,65);
-Lima.generate ();
-Lima.render();
+
+// seattle.getRandom();
+// seattle.SoldCookies();
+
+let seattle = new Loctions('Seattle', 23,65,6.3);
+
+let tokyo = new Loctions('Tokyo', 3,24,1.2);
+let dubai  = new Loctions('Dubai', 11,38,3.7);
+let paris  = new Loctions('Paris', 20 ,38,2.3);
+let lima  = new Loctions('Lima', 2 ,16 ,4.6);
 
 
+// seattle.render();
 
+seattle.getRandom();
+seattle.SoldCookies();
+seattle.render();
+
+tokyo.getRandom();
+tokyo.SoldCookies();
+tokyo.render();
+
+dubai.getRandom();
+dubai.SoldCookies();
+dubai.render();
+
+paris.getRandom();
+paris.SoldCookies();
+paris.render();
+
+lima.getRandom();
+lima.SoldCookies();
+lima.render();
+createfooterHeader();
+console.log(branches);
