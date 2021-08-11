@@ -1,31 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Sales</title>
 </head>
-<body>
-    <header>
 
-    </header>
+<body>
     <main>
+        <header>
+            <a href="index.html">Home</a>
+        </header>
+        
         <div id="Sales1">
         </div>
-        <div id="Sales2">
-        </div>
-        <div id="Sales3">
-        </div>
-        <div id="Sales4">
-        </div>
-        <div id="Sales5">
-        </div>
+
+        <form action="" id="myForm">
+            <fieldset>
+                <legend>Add New Salmon Cookies</legend>
+                <label for="loctionName">loctionName:</label>
+                <input type="text" name="locName" id="loctionName">
+                <br>
+                <label for="minimumOrder">Minimum Order:</label>
+                <input type="number" name="minOrder" id="minimumOrder" min="0" step="0.1">
+                <br>
+                <label for="mamimumOrder">Maximum Order:</label>
+                <input type="number" name="maxOrder" id="mamimumOrder" min="0" step="0.1">
+                <br>
+                <label for="averageSales">Average Sales:</label>
+                <input type="number" name="avgSales" id="averageSales" min="0" step="0.1">
+                <br>
+                <input type="submit">
+            </fieldset>
+        </form>
     </main>
+
     <footer>
 
     </footer>
     <script src="js/app.js"></script>
 </body>
+
 </html>
