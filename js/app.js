@@ -2,11 +2,13 @@
 
 
 let ArrHour = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-// let CustPerHour = [];
-// let SoldCookies = [];
+
 let container = document.getElementById('Sales1');
 let tableEl = document.createElement('table');
 container.appendChild(tableEl);
+
+
+
 
 let branches =[];
 function Loctions (LocName , MinNumOfCusPerH , MaxNumOfCusPerH , AvgNumOfCusPerH   )
@@ -19,7 +21,6 @@ function Loctions (LocName , MinNumOfCusPerH , MaxNumOfCusPerH , AvgNumOfCusPerH
     this.SoldCookiesEachHour=[];
     this.TotalOfBranch = 0;
     branches.push(this);
-    
 }
 
 Loctions.prototype.getRandom = function()
@@ -38,8 +39,6 @@ Loctions.prototype.SoldCookies = function ()
  {
      this.SoldCookiesEachHour.push(Math.floor(this.CustomePerHour[i] * this.AvgNumOfCusPerH))
      this.TotalOfBranch += this.SoldCookiesEachHour[i];
-     
-
  }   
 }
 Loctions.prototype.render = function()
@@ -84,8 +83,31 @@ function createTableHeader() {
     trEl.appendChild(thEll);
     thEll.textContent = 'Daily Location Total';
 }
-        
+let myForm = document.getElementById('myForm')
+myForm.addEventListener('submit', addInfo);
+function addInfo(event)
+{
+    event.preventDefault();
+    let locName = event.target.locName.value;
+    let minOrder = event.target.minOrder.value;
+    let maxOrder = event.target.maxOrder.value;
+    let avgSales = event.target.avgSales.value;
+    let newLoc = new Loctions (locName ,minOrder, maxOrder , avgSales )
+    myForm.reset();
+    
+
+    var rowCount = tableEl.rows.length;
+    tableEl.deleteRow(rowCount -1);
+
+    newLoc.getRandom();
+    newLoc.SoldCookies();
+    newLoc.render();
+    createfooterHeader();
+}
 createTableHeader();
+
+
+
 
 function createfooterHeader() {
 
@@ -113,11 +135,7 @@ function createfooterHeader() {
         lastCell.textContent= TotalOfTotal;
 }
 
-// seattle.getRandom();
-// seattle.SoldCookies();
-
 let seattle = new Loctions('Seattle', 23,65,6.3);
-
 let tokyo = new Loctions('Tokyo', 3,24,1.2);
 let dubai  = new Loctions('Dubai', 11,38,3.7);
 let paris  = new Loctions('Paris', 20 ,38,2.3);
@@ -145,5 +163,6 @@ paris.render();
 lima.getRandom();
 lima.SoldCookies();
 lima.render();
+
 createfooterHeader();
 console.log(branches);
