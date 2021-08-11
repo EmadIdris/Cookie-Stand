@@ -2,6 +2,25 @@ body
 {
     background-color: white;
 }
+header
+{
+    background-color: black;
+    text-align: center;
+    padding: 50px;
+    font-size: 40px;
+    margin: -7px;
+}
+header a
+{
+    color: white;
+    text-decoration: none;
+}
+header a:hover
+{
+    background-color: white;
+    color: black;
+    padding: 40px;
+}
 table 
 {
     border-collapse: collapse;
