@@ -10,6 +10,7 @@ header a
 {
     color: white;
     text-decoration: none;
+    font-family: 'Righteous', cursive;
 }
 header a:hover
 {
@@ -17,32 +18,42 @@ header a:hover
     color: black;
     padding: 40px;
 }
-table {
-    
+table 
+{
+    margin-top: 30px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
     border-collapse: collapse;
     width: 100%;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    
-  }
-  th
-  {
-    padding: 8px;
-    text-align: left;
-    font-weight: bold;
-
-  }
-  
-  td {
-    padding: 8px;
-    text-align: left;
-    
-  }
-  tr:nth-child(even) {background-color: #f2f2f2;}
-main section:nth-child(2)
-{
-    float: left;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
 }
+th
+{
+    text-align: center;
+    padding: 10px;
+    color:white;
+    font-size: 25px;
+    background: #000000;
+}
+td 
+{
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    border-right: 1px solid #f8f8f8;
+    
+}
+
+
+table tr:nth-child(even) {
+    background: #F8F8F8;
+    
+}
+
 
 footer
 {
@@ -55,4 +66,5 @@ footer
 footer p
 {
     color: white;
+    font-family: 'WindSong', cursive;
 }

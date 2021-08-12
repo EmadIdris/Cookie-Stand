@@ -1,48 +1,311 @@
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
 header
 {
     background-color: black;
     text-align: center;
     padding: 50px;
     font-size: 40px;
-    margin: -10px;
+    
 }
+img {vertical-align: middle;}
+
 header a
 {
     color: white;
     text-decoration: none;
+    font-family: 'Anton', sans-serif;
 }
 header a:hover
 {
     background-color: white;
     color: black;
     padding: 40px;
+    font-family: 'Libre Baskerville', serif;
 }
 body
 {
-    background-color: white;
+    font-family: Helvetica;
+    -webkit-font-smoothing: antialiased;
+    background: #222831;
+}
+#Sales1{
+    margin: 10px 70px 70px;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
 }
 table 
 {
+    margin-top: 30px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
     border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    font-family: sans-serif;
     width: 100%;
-    min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    height: 500px;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
 }
 th
 {
-    padding: 8px;
     text-align: center;
-    font-weight: bold;
-    font-size: 20px;
+    padding: 10px;
+    color:white;
+    font-size: 25px;
+    background: #000000;
 }
 td 
 {
-    font-size: 15px;
-    padding: 8px;
     text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    border-right: 1px solid #f8f8f8;
+    
 }
-  tr:nth-child(even) {background-color: #f2f2f2;}
+
+
+table tr:nth-child(even) {
+    background: #F8F8F8;
+    
+}
+  /* tr:nth-child(even) {background-color: #f2f2f2;} */
+
+
+
+  /* form */
+
+
+
+
+#registration-form {
+
+  font-family:'Open Sans Condensed', sans-serif;
+  width: 50%;
+  min-width:250px;
+  margin: 30px auto;
+  /* margin-bottom: 30px; */
+  position: relative;
+}
+
+#registration-form .fieldset {
+  background-color:#d5d5d5;
+
+  border-radius: 3px;
+  
+}
+
+ #registration-form legend {
+  text-align: center;
+  background: #000000;
+  width: 100%;
+  padding: 30px 0;
+  border-radius: 3px 3px 0 0;
+  color: white;
+font-size:2em;
+}
+
+.fieldset form{
+  border:1px solid #2f2f2f;
+  margin:0 auto;
+  display:block;
+  width:100%;
+  padding:30px 20px;
+  box-sizing:border-box;
+  border-radius:0 0 3px 3px;
+}
+.placeholder #registration-form label {
+  display: none;
+}
+ .no-placeholder #registration-form label{
+margin-left:5px;
+  position:relative;
+  display:block;
+  color:grey;
+  text-shadow:0 1px white;
+  font-weight:bold;
+}
+/* all */
+::-webkit-input-placeholder { text-shadow:1px 1px 1px white; font-weight:bold; }
+::-moz-placeholder { text-shadow:0 1px 1px white; font-weight:bold; } /* firefox 19+ */
+:-ms-input-placeholder { text-shadow:0 1px 1px white; font-weight:bold; } /* ie */
+#registration-form input[type=text] , input[type=number] {
+  padding: 15px 20px;
+  border-radius: 1px;
+  margin:5px auto;
+  background-color:#f7f7f7;
+  border: 1px solid silver;
+
+  -webkit-box-shadow: inset 0 1px 5px rgba(0,0,0,0.2);
+  box-shadow: inset 0 1px 5px rgba(0,0,0,0.2), 0 1px rgba(255,255,255,.8);
+  width: 100%;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition:background-color .5s ease;
+-moz-transition:background-color .5s ease;
+-o-transition:background-color .5s ease;
+-ms-transition:background-color .5s ease;
+transition:background-color .5s ease;
+}
+.no-placeholder #registration-form input[type=text] {
+  padding: 10px 20px;
+}
+
+#registration-form input[type=text]:active, .placeholder #registration-form input[type=text]:focus {
+  outline: none;
+  border-color: silver;
+  background-color:white;
+}
+
+#registration-form input[type=submit] {
+  font-family:'Open Sans Condensed', sans-serif;
+  text-transform:uppercase;
+  outline:none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  background-color:black;
+  padding: 10px;
+  color: white;
+  border: 1px solid #3498db;
+  border-radius: 3px;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 5px;
+  cursor: pointer;
+  position:relative;
+  top:0;
+}
+
+#registration-form input[type=submit]:hover {
+  background-color: white;
+  color: black;
+}
+
+#registration-form input[type=submit]:active {
+background:black;
+color: white;
+}
+
+
+.parsley-error-list{
+background-color:#C34343;
+padding: 5px 11px;
+margin: 0;
+list-style: none;
+border-radius: 0 0 3px 3px;
+margin-top:-5px;
+  margin-bottom:5px;
+  color:white;
+  border:1px solid #870d0d;
+  border-top:none;
+    -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position:relative;
+  top:-1px;
+  text-shadow:0px 1px 1px #460909;
+    font-weight:700;
+  font-size:12px;
+}
+.parsley-error{
+  border-color:#870d0d!important;
+  border-bottom:none;
+}
+#registration-form select{
+  width:100%;
+  padding:5px;
+}
+::-moz-focus-inner {
+  border: 0;
+}
+
+
+footer
+{
+    clear: both;
+    background-color: black;
+    text-align: center;
+    padding: 25px;
+    font-size: 30px;
+    
+
+}
+footer p
+{
+    color: white;
+    font-family: 'WindSong', cursive;
+}
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+  top: 5px;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: white;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 2.5}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 2.5}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
